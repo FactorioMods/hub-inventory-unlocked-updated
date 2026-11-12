@@ -32,3 +32,9 @@ The Hub Limiter Combinator must exist for the bag to work.
 Will not work with mods that allow multiple hubs per surface. Will break badly. You've been warned.
 
 You need to be careful with logistic/planetary requests as they won't take into account the items in the bag.
+
+## Factorio 2.1 continuation
+
+This Factorio 2.1 continuation retains existing hub bags, limiter settings and status combinators through native ownership migration. It requires Factorio 2.1.24 or newer. The item, cargo-bay and multiple-hub limitations documented above still apply.
+
+[Mod Portal](https://mods.factorio.com/mod/hub-inventory-unlocked-updated) · [Source and issues](https://github.com/FactorioMods/hub-inventory-unlocked-updated) · [Original mod](https://mods.factorio.com/mod/hub_inventory_unlocked) by Sopel. [Original source](https://github.com/Sopel97/hub_inventory_unlocked).

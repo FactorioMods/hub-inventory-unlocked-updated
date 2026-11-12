@@ -1,14 +1,18 @@
 {
-	"name": "hub_inventory_unlocked",
-	"version": "0.1.2",
-	"factorio_version": "2.0",
-	"title": "Hub Inventory Unlocked",
-	"author": "Sopel",
-	"contact": "",
-	"homepage": "",
-	"description": "Go around the 65535 inventory limit for space platform hubs and cargo landing pads in the least painful way.",
-	"dependencies": [
-    	"base >= 2.0.0",
-    	"? space-age >= 2.0.0"
-	]
+  "name": "hub-inventory-unlocked-updated",
+  "version": "1.0.0",
+  "factorio_version": "2.1",
+  "title": "Hub Inventory Unlocked: Updated",
+  "author": "Sopel; FactorioMods (Factorio 2.1 port)",
+  "contact": "",
+  "homepage": "",
+  "description": "Factorio 2.1 compatibility fork of hub_inventory_unlocked. Go around the 65535 inventory limit for space platform hubs and cargo landing pads in the least painful way.",
+  "dependencies": [
+    "base >= 2.1.24",
+    "? space-age >= 2.0.0",
+    "! hub_inventory_unlocked"
+  ],
+  "migrates_from": [
+    "hub_inventory_unlocked"
+  ]
 }

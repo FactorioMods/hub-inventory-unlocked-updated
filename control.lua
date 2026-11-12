@@ -1,3 +1,4 @@
+local legacy_import = require("legacy_import")
 do
     local MAX_NUM_HUB_INVENTORY_SLOTS = 65535
     local DEFAULT_UPDATE_PERIOD_IN_TICKS = 60
@@ -306,7 +307,7 @@ do
         local hub = this_surface_storage.hub
         if hub ~= nil and controls ~= nil then
             local update_period = get_update_period_in_ticks_from_controls(controls)
-            if (game.tick + tick_offset) % update_period == 0 then
+            if update_period ~= nil and (game.tick + tick_offset) % update_period == 0 then
                 local bag = get_or_create_bag(this_surface_storage)
                 local item_thresholds = get_item_thresholds_from_controls(controls)
                 update_hub_contents(hub, bag, item_thresholds)
@@ -373,20 +374,22 @@ do
     
         storage.dirty_control_surfaces = {}
     
-        storage.per_surface = {}
+        storage.per_surface = storage.per_surface or {}
         for _, surface in pairs(game.surfaces) do
-            storage.per_surface[surface.index] = {}
+            storage.per_surface[surface.index] = storage.per_surface[surface.index] or {}
 
-            table.insert(storage.dirty_hub_surfaces, surface)
-            table.insert(storage.dirty_control_surfaces, surface)
+            storage.dirty_hub_surfaces[surface.index] = true
+            storage.dirty_control_surfaces[surface.index] = true
         end
     end
 
     script.on_init(function()
+        legacy_import.adopt("hub_inventory_unlocked")
         init()
     end)
 
     script.on_configuration_changed(function()
+        legacy_import.adopt("hub_inventory_unlocked")
         init()
     end)
 end
